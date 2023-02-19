@@ -1,3 +1,5 @@
+package edu.uaslp.examen;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -5,12 +7,6 @@ import java.util.List;
 public class BookCollection {
     private String name;
     private List<Book> books = new ArrayList<Book>();
-
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getName() {
         return name;
     }
@@ -20,10 +16,15 @@ public class BookCollection {
     public List<Book> getBooks() {
         return books;
     }
+
     public int getStars(){
+        //metodo mover lista:
+        //metodo preguntar si hay datos:
+
         int contStars = 0, contBooks = 0;
         Iterator<Book> it = books.iterator();
-        while (it != null){
+
+        while (it.hasNext()){
             Book temp;
             temp = it.next();
             contStars += temp.getStars();
@@ -31,5 +32,10 @@ public class BookCollection {
         }
         contStars /= contBooks;
         return contStars;
+    }
+
+
+    public BookCollection(String name){
+        this.name = name;
     }
 }
